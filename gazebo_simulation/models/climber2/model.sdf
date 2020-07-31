@@ -1,0 +1,298 @@
+<sdf version='1.6'>
+  <model name='climber2'>
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.441822 -0.622778 -0.465172 0 -0 0</pose>
+        <mass>5.08212</mass>
+        <inertia>
+          <ixx>0.218156</ixx>
+          <ixy>1.98691e-06</ixy>
+          <ixz>0.00239316</ixz>
+          <iyy>0.320035</iyy>
+          <iyz>0.000213111</iyz>
+          <izz>0.474819</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='left_prim_track'>
+      <pose frame=''>0.43737 -0.34024 -0.58504 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.114961 0.047161 0.096642 0 -0 0</pose>
+        <mass>5.3028</mass>
+        <inertia>
+          <ixx>0.0160487</ixx>
+          <ixy>-1.30046e-19</ixy>
+          <ixz>5.29023e-07</ixz>
+          <iyy>0.0240706</iyy>
+          <iyz>1.4583e-19</iyz>
+          <izz>0.0160536</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_prim_track_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/left_prim_track.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_prim_track_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/left_prim_track.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_prim_track_to_base' type='revolute'>
+      <child>left_prim_track</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    
+    <link name='left_sec_arm'>
+      <pose frame=''>0.7466 -0.2186 -0.490202 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.010016 -0.057007 0.190983 0 -0 0</pose>
+        <mass>1.38165</mass>
+        <inertia>
+          <ixx>0.00888072</ixx>
+          <ixy>1.94718e-20</ixy>
+          <ixz>0.000360443</ixz>
+          <iyy>0.00950726</iyy>
+          <iyz>4.57714e-21</iyz>
+          <izz>0.00197276</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_sec_arm_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/left_sec_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_sec_arm_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/left_sec_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_sec_arm_to_left_prim_track' type='revolute'>
+      <child>left_sec_arm</child>
+      <parent>left_prim_track</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.142</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    
+    <link name='payload'>
+      <pose frame=''>0.44572 -0.37861 -0.047381 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.000436 -0.24533 -0.102165 0 -0 0</pose>
+        <mass>5.29624</mass>
+        <inertia>
+          <ixx>0.218846</ixx>
+          <ixy>0.000537001</ixy>
+          <ixz>-1.32545e-07</ixz>
+          <iyy>0.31709</iyy>
+          <iyz>1.00245e-07</iyz>
+          <izz>0.457796</izz>
+        </inertia>
+      </inertial>
+      <collision name='payload_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/payload.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='payload_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/payload.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='payload_to_base' type='revolute'>
+      <child>payload</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.047</lower>
+          <upper>1.047</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_prim_track'>
+      <pose frame=''>0.44256 -0.90697 -0.58454 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.109779 -0.047161 0.09619 0 -0 0</pose>
+        <mass>5.3028</mass>
+        <inertia>
+          <ixx>0.0160487</ixx>
+          <ixy>-4.98052e-19</ixy>
+          <ixz>5.20152e-07</ixz>
+          <iyy>0.0240706</iyy>
+          <iyz>-1.63142e-18</iyz>
+          <izz>0.0160536</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_prim_track_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/right_prim_track.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_prim_track_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/right_prim_track.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_prim_track_to_base' type='revolute'>
+      <child>right_prim_track</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    
+    <link name='right_sec_arm'>
+      <pose frame=''>0.74661 -0.903606 -0.490206 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.010291 -0.067993 0.190968 0 -0 0</pose>
+        <mass>1.38165</mass>
+        <inertia>
+          <ixx>0.00887906</ixx>
+          <ixy>-2.57559e-19</ixy>
+          <ixz>0.000376027</ixz>
+          <iyy>0.00950726</iyy>
+          <iyz>-1.08224e-18</iyz>
+          <izz>0.00197442</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_sec_arm_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/right_sec_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_sec_arm_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://climber2/meshes/right_sec_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_sec_arm_to_right_prim_track' type='revolute'>
+      <child>right_sec_arm</child>
+      <parent>right_prim_track</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.142</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <plugin filename="libSimpleTrackedVehiclePlugin.so" name="climber_vehicle">
+      <body>base_link</body>
+      <left_track>left_prim_track</left_track>
+      <right_track>right_prim_track</right_track>
+     <!-- <left_flipper>left_sec_arm</left_flipper>
+      <right_flipper>right_sec_arm</right_flipper>-->
+      <track_mu>2</track_mu>
+      <track_mu2>0.5</track_mu2>
+    </plugin>
+
+    <plugin filename="libKeysToCmdVelPlugin.so" name="keyboard_control">
+      <publish_as_twist>true</publish_as_twist>
+      <cmd_vel_topic>~/climber/cmd_vel_twist</cmd_vel_topic>
+    </plugin>
+  </model>
+</sdf>

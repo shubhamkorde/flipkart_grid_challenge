@@ -8,6 +8,6 @@
         <arg name="roll" value="0"/>
         <arg name="pitch" value="0"/>
         <arg name="yaw" value="0.0" />
-        <arg name="sdf_robot_file" value="$(find gazebo_simulation)/models/climber/model.sdf" />
+        <arg name="sdf_robot_file" value="$(find gazebo_simulation)/models/climber2/model.sdf" />
     </include>
 </launch>
