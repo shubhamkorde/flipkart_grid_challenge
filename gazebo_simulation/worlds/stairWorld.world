@@ -8,10 +8,17 @@
     <include>
       <uri>model://sun</uri>
     </include>
-
+<!--
     <include>
       <uri>model://stairs</uri>
     </include>
-    
+-->
+    <include>
+      <uri>model://stairs2</uri>
+    </include>
+       
+    <gui>
+      <plugin name="keyboard" filename="libKeyboardGUIPlugin.so"/>
+    </gui>
   </world>
 </sdf>
