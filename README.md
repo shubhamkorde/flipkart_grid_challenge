@@ -1,4 +1,4 @@
-# Vision-layer
+# autonomous stair climbing robot
 
 ## Overview
 
